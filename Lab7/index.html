@@ -40,7 +40,7 @@
     <div class="map-overlay top">
     <div class="map-overlay-inner">
     <h2>Public and Affordable Housing Flood Risk</h2>
-    <!-- INSERT TEXT HERE -->
+    Overlaying extent of flooding from Hurricane Sandy with NYCHA public housing developments in NYC. Data sourced from NYCOpenData.
     </div>
     </div>
 
@@ -55,6 +55,20 @@ const map = new mapboxgl.Map({
 });
   map.on('load',function(){
   // Give your layer's source a nickname you'll remember easily. I've called my source `sandy_layer`.
+ map.addSource('housing_layer',{
+    'type':'vector',
+    'url': 'mapbox://kcooks614.8l3edhyd'
+    });
+  map.addLayer({
+    'id': 'housing_developments',
+    'type':'fill',
+    'source': 'housing_layer',
+    'source-layer':'Map_of_NYCHA_Developments-3d6hok',
+    'paint':{
+      'fill-color':'#964B00',
+      'fill-opacity': 0.8
+    }
+    }) 
   map.addSource('sandy_layer',{
     'type':'vector',
     'url':'mapbox://kcooks614.04wcsh6c'
@@ -68,23 +82,10 @@ const map = new mapboxgl.Map({
     'paint':{
       'fill-color':'#00158f',
       'fill-opacity': 0.5
+  }
   });
-  map.addSource('housing_layer',{
-    'type':'vector',
-    'url': 'FILLTHISIN'
+  map.moveLayer('flood_zones','housing_developments');
     });
-  map.addLayer({
-    'id': 'housing_developments',
-    'type':'FILLTHISINTOO',
-    'source': 'housing_layer',
-    'source-layer':'FILLTHISINTOOTOO'
-    'paint':{
-      'fill-color':'LOOKUPHEXCODECOLORS'
-      'fill-opacity': 0.5
-    }
-  })
-    )}
-  });
 // Within a script, you comment using two backslashes.
 </script>
 
