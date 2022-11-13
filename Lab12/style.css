@@ -37,7 +37,7 @@ body {
             width: 100%;
             position: relative;
             z-index: 5;  
-            background-image: url("images/sandy1.png");
+            background-image: url("Images/sandy1.png");
             background-position: center;
             background-repeat: no-repeat;
             background-size: 100vw 79vh;
